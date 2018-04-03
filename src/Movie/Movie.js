@@ -30,7 +30,8 @@ export class Movie extends React.Component{
         list : [],
         modal: false,
         comment:[],
-        page:1
+        page:1,
+        hasMore:true
     }
     
     constructor(props){
@@ -44,7 +45,8 @@ export class Movie extends React.Component{
         axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${this.state.page}&_limit=10`)
         .then(res => {
             this.setState({
-                list: this.state.list.concat(res.data)
+                list: this.state.list.concat(res.data),
+                hasMore:(res.data.length > 0)
             })
         });
     }
@@ -76,7 +78,7 @@ export class Movie extends React.Component{
     render(){
         return(
             <InfiniteScroll 
-            hasMore={true}
+            hasMore={this.state.hasMore}
             loader={<h4>Loading...</h4>}
             dataLength={this.state.list.length}
             next={this.handleScroll}>
