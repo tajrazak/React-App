@@ -38,7 +38,7 @@ export class Movie extends React.Component{
         super(props);
         this.getPosts();
         this.toggle = this.toggle.bind(this);
-        this.getComments = this.getComments.bind(this);
+        //this.getComments = this.getComments.bind(this);
     }
 
     getPosts = () =>{
