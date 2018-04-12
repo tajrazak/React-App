@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Item = (props) => {
     return(
-        <div className="card col-2" style={{width:"20rem",margin:"4.5em"}} value={props.keyvalue}>
+        <div className="card col-3" style={{width:"10rem",margin:"1.5em"}} value={props.keyvalue}>
             <img className="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="image" style={{width:"100%"}}/>
             <div className="card-body">
             <h4 className="card-title">{props.item.title}</h4>
