@@ -12,7 +12,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact={true} path="/" component={Login}/>
-          <Route exact={true} path="/home" component={Movie}/>
+          <Route exact={true} path="/home" render={() => 
+          {
+            return (localStorage.getItem('auth') == 'authenticated')?(<Movie/>) : (<div>invalid user</div>)
+          }
+        }/>
         </div>
       </Router>
     );

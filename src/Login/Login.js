@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 
+import { Prompt } from 'react-router-dom';
+
 export class Login extends Component{
     state = {
         email:'',
@@ -29,6 +31,7 @@ export class Login extends Component{
     submitForm = (event) =>{
         event.preventDefault();
         if(this.state.email == "taj.razak@gmail.com" && this.state.password == "asdf"){
+            localStorage.setItem('auth','authenticated');
             this.props.history.push('/home');
         }else{
             this.setState({
@@ -108,6 +111,7 @@ export class Login extends Component{
                         </div>
                     </div>
                 </form>
+                <Prompt message="Are you sure you want to leave?"/>
             </div>
         )
     }
