@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,8 +11,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact={true} path="/" component={Login}/>
-          <Route exact={true} path="/home" render={() => 
+          <Route exact path="/" render={()=><Redirect to="/login"/>}/>
+          <Route exact={true} path="/login" component={Login}/>
+          <Route path="/home" render={() => 
           {
             return (localStorage.getItem('auth') == 'authenticated')?(<Movie/>) : (<div>invalid user</div>)
           }

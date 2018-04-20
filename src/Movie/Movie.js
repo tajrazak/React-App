@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -83,6 +84,8 @@ export class Movie extends React.Component{
             dataLength={this.state.list.length}
             next={this.handleScroll}>
             <div style={{marginTop: "2.3em"}}>
+                <Link to="/home/test">test</Link>
+                <Route path="/home/test" render={()=><div>hi</div>}/> {/*child router example*/}
                 <List list={this.state.list} getComments={this.getComments}/>
                 <Modal isOpen={this.state.modal} centered={true}>
                     <ModalHeader toggle={this.toggle}>Comments</ModalHeader>
